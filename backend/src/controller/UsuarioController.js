@@ -4,7 +4,7 @@ class UsuarioController {
     this.login = this.login.bind(this);
     this.register = this.register.bind(this);
   }
-
+// Permite a los usuarios iniciar sesión proporcionando su nombre de usuario y contraseña.
   async login(req, res, next) {
     try {
       const { usuario_name, usuario_password } = req.body;
@@ -14,6 +14,7 @@ class UsuarioController {
       next(error);
     }
   }
+// Permite a los nuevos usuarios registrarse proporcionando un nombre de usuario
 
   async register(req, res, next) {
     try {

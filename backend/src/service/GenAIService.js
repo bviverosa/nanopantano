@@ -47,13 +47,13 @@ class GenAIService {
           sesion_id: sesion_id 
         },
         message: {
-          mensaje_id: mensajeId,                  // `mensaje_id` CHAR(36) BINARY
-          sesion_id: sesion_id,                    // `sesion_id` CHAR(36) BINARY
-          remitente: "assistant",                 // `remitente` ENUM('user', 'assistant')
-          contenido: `Imagen generada con FLUX.1-schnell para: "${prompt}"`, // `contenido` TEXT
-          tipo: "image",                          // `tipo` VARCHAR(20)
-          imagen_url: imageUrl,                   // `imagen_url` TEXT (URL de SiliconFlow que renderiza el frontend)
-          created_at: timestamp                   // `created_at` DATETIME
+          mensaje_id: mensajeId,                
+          sesion_id: sesion_id,              
+          remitente: "assistant",                
+          contenido: `Imagen generada con FLUX.1-schnell para: "${prompt}"`,
+          tipo: "image",                        
+          imagen_url: imageUrl,                   
+          created_at: timestamp                 
         }
       };
 

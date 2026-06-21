@@ -7,7 +7,7 @@ class SesionController {
     this.createSession = this.createSession.bind(this);
     this.addMessage = this.addMessage.bind(this);
   }
-
+//Obtener sesiones del usuario o todas las sesiones si no se proporciona usuario_id 
   async listSessions(req, res, next) {
     try {
       const usuario_id = req.query.usuario_id;
@@ -19,7 +19,7 @@ class SesionController {
       next(error);
     }
   }
-
+//obtener detalles de una sesión específica por su ID, incluyendo su título y fecha de creación
   async getSession(req, res, next) {
     try {
       const { sesion_id } = req.params;
@@ -32,7 +32,7 @@ class SesionController {
       next(error);
     }
   }
-
+//obtener mensajes de una sesión específica por su ID, incluyendo el remitente, contenido, tipo y fecha de cada mensaje
   async getMessages(req, res, next) {
     try {
       const { sesion_id } = req.params;
@@ -42,7 +42,7 @@ class SesionController {
       next(error);
     }
   }
-
+//crear una nueva sesión de chat para un usuario específico.
   async createSession(req, res, next) {
     try {
       const { usuario_id, titulo } = req.body;
@@ -56,6 +56,7 @@ class SesionController {
     }
   }
 
+//agregar un nuevo mensaje a una sesión de chat específica.
   async addMessage(req, res, next) {
     try {
       const { sesion_id } = req.params;

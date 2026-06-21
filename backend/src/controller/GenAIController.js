@@ -1,13 +1,13 @@
 // src/controller/GenAIController.js
 const { SesionMensaje } = require("../model/index.js"); // Ajusta la ruta según tu estructura de carpetas
 const sequelize = require("../config/DatabaseSequelize");
-
+// Controlador para manejar las solicitudes relacionadas con la generación de imágenes a partir de prompts.
 class GenAIController {
   constructor(genAIService) {
     this.genAIService = genAIService;
     this.generateImage = this.generateImage.bind(this);
   }
-
+// Permite a los usuarios generar imágenes a partir de un prompt.
   async generateImage(req, res, next) {
     const t = await sequelize.transaction();
 
@@ -27,9 +27,8 @@ class GenAIController {
 
       const result = await this.genAIService.generateImage({ prompt, sesion_id, usuario_id });
       
-      console.log("Resultado de GenAIService:", result);
       const urlGenerada = result.message.url || result.message.imagen_url || ""; 
-
+// Guardar el mensaje de respuesta del asistente con la URL de la imagen generada
       const mensajeAsistente = await SesionMensaje.create({
         sesion_id,
         remitente: "assistant",
